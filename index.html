@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RTOX - Premium Unblocked Games</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -15,20 +14,22 @@
         }
         
         body {
-            background: linear-gradient(135deg, #0a0a1a, #121230);
-            color: #e0e0ff;
+            background: linear-gradient(135deg, #0a0a0a, #121212);
+            color: #e0e0e0;
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
         }
         
-        #particles-js {
+        .particles {
             position: fixed;
-            width: 100%;
-            height: 100%;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(40, 40, 40, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(30, 30, 30, 0.1) 0%, transparent 25%);
         }
         
         .container {
@@ -43,7 +44,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 0;
-            border-bottom: 1px solid rgba(100, 100, 255, 0.2);
+            border-bottom: 1px solid rgba(100, 100, 100, 0.3);
             margin-bottom: 40px;
         }
         
@@ -55,19 +56,15 @@
         
         .logo-icon {
             font-size: 2.5rem;
-            color: #6c5ce7;
-            text-shadow: 0 0 15px rgba(108, 92, 231, 0.7);
+            color: #e0e0e0;
         }
         
         .logo-text {
             font-size: 2.2rem;
             font-weight: 800;
-            background: linear-gradient(45deg, #6c5ce7, #a29bfe);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px rgba(108, 92, 231, 0.3);
+            color: #fff;
             letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
         }
         
         nav ul {
@@ -77,7 +74,7 @@
         }
         
         nav a {
-            color: #a29bfe;
+            color: #b0b0b0;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
@@ -87,9 +84,9 @@
             position: relative;
         }
         
-        nav a:hover {
+        nav a:hover, nav a.active {
             color: #fff;
-            background: rgba(108, 92, 231, 0.15);
+            background: rgba(50, 50, 50, 0.5);
         }
         
         nav a::after {
@@ -99,7 +96,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+            background: #e0e0e0;
             transition: width 0.3s ease;
         }
         
@@ -112,11 +109,11 @@
             text-align: center;
             padding: 60px 20px;
             margin: 40px 0;
-            border-radius: 20px;
-            background: rgba(20, 20, 50, 0.4);
+            border-radius: 15px;
+            background: rgba(25, 25, 25, 0.7);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(108, 92, 231, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 30, 0.5);
+            border: 1px solid rgba(100, 100, 100, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
         }
@@ -128,7 +125,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(108, 92, 231, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(100, 100, 100, 0.05) 0%, transparent 70%);
             z-index: -1;
             animation: rotate 20s linear infinite;
         }
@@ -136,18 +133,15 @@
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #fff, #a29bfe);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 15px rgba(162, 155, 254, 0.3);
+            color: #fff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
         }
         
         .hero p {
             font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto 30px;
-            color: #d0d0ff;
+            color: #d0d0d0;
             line-height: 1.6;
         }
         
@@ -162,7 +156,7 @@
             padding: 14px 35px;
             font-size: 1.1rem;
             font-weight: 600;
-            border-radius: 50px;
+            border-radius: 8px;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -195,26 +189,26 @@
         }
         
         .btn-games {
-            background: linear-gradient(45deg, #121230, #1a1a50);
+            background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
             color: #fff;
-            border: 1px solid rgba(108, 92, 231, 0.5);
-            box-shadow: 0 0 15px rgba(108, 92, 231, 0.3);
+            border: 1px solid rgba(100, 100, 100, 0.5);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
         
         .btn-games:hover {
-            box-shadow: 0 0 25px rgba(108, 92, 231, 0.5);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
             transform: translateY(-3px);
         }
         
         .btn-github {
-            background: linear-gradient(45deg, #2b2b6b, #3d3d99);
+            background: linear-gradient(45deg, #2a2a2a, #3a3a3a);
             color: #fff;
-            border: 1px solid rgba(100, 149, 237, 0.5);
-            box-shadow: 0 0 15px rgba(65, 105, 225, 0.3);
+            border: 1px solid rgba(150, 150, 150, 0.5);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
         
         .btn-github:hover {
-            box-shadow: 0 0 25px rgba(65, 105, 225, 0.5);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
             transform: translateY(-3px);
         }
         
@@ -236,8 +230,8 @@
             bottom: -10px;
             left: 10%;
             width: 80%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #6c5ce7, transparent);
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
             border-radius: 3px;
         }
         
@@ -249,19 +243,19 @@
         }
         
         .game-card {
-            background: rgba(25, 25, 60, 0.6);
-            border-radius: 15px;
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
-            border: 1px solid rgba(108, 92, 231, 0.2);
-            box-shadow: 0 5px 15px rgba(0, 0, 20, 0.4);
+            border: 1px solid rgba(100, 100, 100, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
             position: relative;
         }
         
         .game-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(108, 92, 231, 0.4);
-            border-color: rgba(108, 92, 231, 0.5);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+            border-color: rgba(200, 200, 200, 0.5);
         }
         
         .game-card img {
@@ -269,6 +263,7 @@
             height: 180px;
             object-fit: cover;
             display: block;
+            filter: grayscale(30%);
         }
         
         .game-info {
@@ -282,7 +277,7 @@
         }
         
         .game-info p {
-            color: #b0b0ff;
+            color: #b0b0b0;
             font-size: 0.95rem;
             line-height: 1.5;
             margin-bottom: 15px;
@@ -296,22 +291,86 @@
         }
         
         .tag {
-            background: rgba(108, 92, 231, 0.2);
-            color: #a29bfe;
+            background: rgba(80, 80, 80, 0.5);
+            color: #e0e0e0;
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
         }
         
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 60px 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0 30px;
             margin-top: 50px;
-            border-top: 1px solid rgba(100, 100, 255, 0.2);
-            color: #a29bfe;
+            border-top: 1px solid rgba(100, 100, 100, 0.3);
+            color: #b0b0b0;
             font-size: 1rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            text-align: left;
+        }
+        
+        .footer-column {
+            flex: 1;
+            padding: 0 20px;
+        }
+        
+        .footer-column h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #b0b0b0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: #fff;
         }
         
         .social-links {
@@ -328,18 +387,23 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background: rgba(108, 92, 231, 0.15);
-            color: #a29bfe;
+            background: rgba(50, 50, 50, 0.5);
+            color: #e0e0e0;
             font-size: 1.2rem;
             transition: all 0.3s ease;
             text-decoration: none;
         }
         
         .social-links a:hover {
-            background: rgba(108, 92, 231, 0.3);
+            background: rgba(80, 80, 80, 0.7);
             color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
         }
         
         /* Animations */
@@ -383,37 +447,46 @@
                 width: 80%;
                 justify-content: center;
             }
+            
+            .stats {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Particles Background -->
-    <div id="particles-js"></div>
+    <div class="particles"></div>
     
     <div class="container">
         <!-- Header -->
         <header>
             <div class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-gamepad"></i>
+                    <i class="fas fa-dice-d20"></i>
                 </div>
                 <div class="logo-text">RTOX</div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-dice"></i> All Games</a></li>
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-gamepad"></i> All Games</a></li>
                     <li><a href="#"><i class="fas fa-fire"></i> Popular</a></li>
-                    <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
-                    <li><a href="#"><i class="fas fa-question-circle"></i> Support</a></li>
+                    <li><a href="#"><i class="fas fa-history"></i> Recently Added</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
                 </ul>
             </nav>
         </header>
         
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Premium Unblocked Gaming Experience</h1>
-            <p>Play the best HTML5 games anywhere, anytime. No downloads, no restrictions, just pure gaming fun. Updated daily with new titles!</p>
+            <h1>PREMIUM UNBLOCKED GAMING</h1>
+            <p>Experience the ultimate collection of HTML5 games with no restrictions. Play anywhere, anytime - no downloads required.</p>
             
             <div class="cta-buttons">
                 <a href="#" class="btn btn-games">
@@ -425,6 +498,22 @@
             </div>
         </section>
         
+        <!-- Stats Section -->
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">250+</div>
+                <div class="stat-label">Games</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">1M+</div>
+                <div class="stat-label">Players</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Availability</div>
+            </div>
+        </div>
+        
         <!-- Featured Games -->
         <h2 class="section-title">Featured Games</h2>
         <div class="games-grid">
@@ -432,12 +521,12 @@
             <div class="game-card floating">
                 <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600" alt="Space Adventure">
                 <div class="game-info">
-                    <h3>Space Adventure</h3>
-                    <p>Navigate through asteroid fields and battle alien ships in this epic space shooter.</p>
+                    <h3>Galaxy Conflict</h3>
+                    <p>Strategic space battles with customizable ships and dynamic combat systems.</p>
                     <div class="game-tags">
-                        <span class="tag">Action</span>
-                        <span class="tag">Shooter</span>
-                        <span class="tag">Arcade</span>
+                        <span class="tag">Strategy</span>
+                        <span class="tag">Space</span>
+                        <span class="tag">Multiplayer</span>
                     </div>
                 </div>
             </div>
@@ -446,12 +535,12 @@
             <div class="game-card floating" style="animation-delay: 0.5s;">
                 <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600" alt="Soccer Challenge">
                 <div class="game-info">
-                    <h3>Soccer Challenge</h3>
-                    <p>Score incredible goals and become the ultimate soccer champion in this physics-based game.</p>
+                    <h3>Urban Racer</h3>
+                    <p>High-speed racing through neon-lit city streets with realistic physics.</p>
                     <div class="game-tags">
-                        <span class="tag">Sports</span>
-                        <span class="tag">Skill</span>
-                        <span class="tag">Multiplayer</span>
+                        <span class="tag">Racing</span>
+                        <span class="tag">Action</span>
+                        <span class="tag">3D</span>
                     </div>
                 </div>
             </div>
@@ -460,12 +549,12 @@
             <div class="game-card floating" style="animation-delay: 1s;">
                 <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&w=600" alt="Puzzle Quest">
                 <div class="game-info">
-                    <h3>Puzzle Quest</h3>
-                    <p>Solve challenging puzzles and unlock mysterious worlds in this brain-teasing adventure.</p>
+                    <h3>Shadow Puzzle</h3>
+                    <p>Solve intricate puzzles in a mysterious world of light and shadow.</p>
                     <div class="game-tags">
                         <span class="tag">Puzzle</span>
-                        <span class="tag">Strategy</span>
                         <span class="tag">Adventure</span>
+                        <span class="tag">Mystery</span>
                     </div>
                 </div>
             </div>
@@ -474,12 +563,12 @@
             <div class="game-card floating" style="animation-delay: 1.5s;">
                 <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600" alt="Racing Fury">
                 <div class="game-info">
-                    <h3>Racing Fury</h3>
-                    <p>Experience high-speed racing on challenging tracks with realistic physics and stunning visuals.</p>
+                    <h3>Cyber Striker</h3>
+                    <p>Futuristic soccer game with power-ups and special abilities.</p>
                     <div class="game-tags">
-                        <span class="tag">Racing</span>
-                        <span class="tag">Action</span>
-                        <span class="tag">3D</span>
+                        <span class="tag">Sports</span>
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Competitive</span>
                     </div>
                 </div>
             </div>
@@ -487,60 +576,99 @@
         
         <!-- Footer -->
         <footer>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>RTOX Games</h3>
+                    <p>Premium unblocked gaming experience with no restrictions. Play anywhere, anytime.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">All Games</a></li>
+                        <li><a href="#">New Releases</a></li>
+                        <li><a href="#">Popular Games</a></li>
+                        <li><a href="#">Request a Game</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Report Issue</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
             <div class="social-links">
                 <a href="#"><i class="fab fa-discord"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-reddit"></i></a>
                 <a href="#"><i class="fab fa-github"></i></a>
             </div>
-            <p>© 2023 RTOX Unblocked Games. All Rights Reserved.</p>
-            <p>Play responsibly. All games are property of their respective owners.</p>
+            
+            <div class="copyright">
+                <p>© 2023 RTOX Unblocked Games. All Rights Reserved.</p>
+                <p>Play responsibly. All games are property of their respective owners.</p>
+            </div>
         </footer>
     </div>
     
     <script>
-        // Initialize particles.js
+        // Add floating animation to game cards
         document.addEventListener('DOMContentLoaded', function() {
-            particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80, density: { enable: true, value_area: 800 } },
-                    color: { value: "#6c5ce7" },
-                    shape: { type: "circle" },
-                    opacity: { value: 0.3, random: true },
-                    size: { value: 3, random: true },
-                    line_linked: {
-                        enable: true,
-                        distance: 150,
-                        color: "#6c5ce7",
-                        opacity: 0.1,
-                        width: 1
-                    },
-                    move: {
-                        enable: true,
-                        speed: 2,
-                        direction: "none",
-                        random: true,
-                        straight: false,
-                        out_mode: "out",
-                        bounce: false
-                    }
-                },
-                interactivity: {
-                    detect_on: "canvas",
-                    events: {
-                        onhover: { enable: true, mode: "repulse" },
-                        onclick: { enable: true, mode: "push" },
-                        resize: true
-                    }
-                },
-                retina_detect: true
-            });
-            
-            // Add floating animation to game cards
             const cards = document.querySelectorAll('.game-card');
             cards.forEach((card, index) => {
                 card.style.animationDelay = `${index * 0.2}s`;
             });
+            
+            // Create dynamic particles
+            const particlesContainer = document.querySelector('.particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 5 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = 'rgba(200, 200, 200, ' + (Math.random() * 0.3 + 0.1) + ')';
+                particle.style.borderRadius = '50%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.zIndex = '-1';
+                
+                // Animation
+                particle.animate = true;
+                particle.x = parseFloat(particle.style.left);
+                particle.y = parseFloat(particle.style.top);
+                particle.vx = (Math.random() - 0.5) * 0.5;
+                particle.vy = (Math.random() - 0.5) * 0.5;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Animate particles
+            function animateParticles() {
+                const particles = particlesContainer.querySelectorAll('div');
+                particles.forEach(particle => {
+                    if (!particle.animate) return;
+                    
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    
+                    // Boundary check
+                    if (particle.x < 0 || particle.x > 100) particle.vx *= -1;
+                    if (particle.y < 0 || particle.y > 100) particle.vy *= -1;
+                    
+                    particle.style.left = particle.x + '%';
+                    particle.style.top = particle.y + '%';
+                });
+                
+                requestAnimationFrame(animateParticles);
+            }
+            
+            animateParticles();
         });
     </script>
 </body>
