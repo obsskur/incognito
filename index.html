@@ -70,7 +70,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 20px;
         }
         
         nav a {
@@ -116,18 +116,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(100, 100, 100, 0.05) 0%, transparent 70%);
-            z-index: -1;
-            animation: rotate 20s linear infinite;
         }
         
         .hero h1 {
@@ -250,6 +238,7 @@
             border: 1px solid rgba(100, 100, 100, 0.3);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
             position: relative;
+            cursor: pointer;
         }
         
         .game-card:hover {
@@ -326,92 +315,82 @@
             letter-spacing: 1px;
         }
         
+        /* Game Page */
+        .game-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .game-header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+        }
+        
+        .return-btn {
+            padding: 10px 20px;
+            background: rgba(50, 50, 50, 0.7);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .return-btn:hover {
+            background: rgba(80, 80, 80, 0.9);
+            transform: translateY(-2px);
+        }
+        
+        .game-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
         /* Footer */
         footer {
             text-align: center;
-            padding: 40px 0 30px;
-            margin-top: 50px;
-            border-top: 1px solid rgba(100, 100, 100, 0.3);
+            padding: 20px 0;
+            margin-top: 30px;
             color: #b0b0b0;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
         
-        .footer-content {
+        .copyright {
+            margin-top: 10px;
+        }
+        
+        .policy-links {
             display: flex;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto 30px;
-            text-align: left;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
         }
         
-        .footer-column {
-            flex: 1;
-            padding: 0 20px;
-        }
-        
-        .footer-column h3 {
-            color: #fff;
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column a {
+        .policy-links a {
             color: #b0b0b0;
             text-decoration: none;
             transition: color 0.3s ease;
         }
         
-        .footer-column a:hover {
+        .policy-links a:hover {
             color: #fff;
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-        
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: rgba(50, 50, 50, 0.5);
-            color: #e0e0e0;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .social-links a:hover {
-            background: rgba(80, 80, 80, 0.7);
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .copyright {
-            margin-top: 20px;
-            font-size: 0.9rem;
+            text-decoration: underline;
         }
         
         /* Animations */
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -451,11 +430,6 @@
             .stats {
                 flex-direction: column;
             }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
-            }
         }
     </style>
 </head>
@@ -475,10 +449,9 @@
             <nav>
                 <ul>
                     <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#"><i class="fas fa-gamepad"></i> All Games</a></li>
-                    <li><a href="#"><i class="fas fa-fire"></i> Popular</a></li>
-                    <li><a href="#"><i class="fas fa-history"></i> Recently Added</a></li>
-                    <li><a href="#"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="#games"><i class="fas fa-gamepad"></i> Games</a></li>
+                    <li><a href="#"><i class="fas fa-plus-circle"></i> Request Games</a></li>
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Info</a></li>
                 </ul>
             </nav>
         </header>
@@ -489,11 +462,11 @@
             <p>Experience the ultimate collection of HTML5 games with no restrictions. Play anywhere, anytime - no downloads required.</p>
             
             <div class="cta-buttons">
-                <a href="#" class="btn btn-games">
+                <a href="#games" class="btn btn-games">
                     <i class="fas fa-play-circle"></i> Play Games Now
                 </a>
                 <a href="#" class="btn btn-github">
-                    <i class="fab fa-github"></i> GitHub Repository
+                    <i class="fab fa-github"></i> GitHub
                 </a>
             </div>
         </section>
@@ -501,11 +474,11 @@
         <!-- Stats Section -->
         <div class="stats">
             <div class="stat-item">
-                <div class="stat-number">250+</div>
+                <div class="stat-number">25+</div>
                 <div class="stat-label">Games</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">1M+</div>
+                <div class="stat-number">1K+</div>
                 <div class="stat-label">Players</div>
             </div>
             <div class="stat-item">
@@ -515,60 +488,60 @@
         </div>
         
         <!-- Featured Games -->
-        <h2 class="section-title">Featured Games</h2>
+        <h2 class="section-title" id="games">Featured Games</h2>
         <div class="games-grid">
-            <!-- Game 1 -->
-            <div class="game-card floating">
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600" alt="Space Adventure">
+            <!-- Slope Game -->
+            <div class="game-card floating" onclick="openGame('slope')">
+                <img src="https://img.y8.com/cloud/v2-y8-thumbs-small-thumbnails-001/106033/small.gif" alt="Slope Game">
                 <div class="game-info">
-                    <h3>Galaxy Conflict</h3>
-                    <p>Strategic space battles with customizable ships and dynamic combat systems.</p>
+                    <h3>Slope</h3>
+                    <p>Navigate a 3D course at high speed while avoiding obstacles and pitfalls. Control a neon ball racing down an endless slope!</p>
                     <div class="game-tags">
-                        <span class="tag">Strategy</span>
-                        <span class="tag">Space</span>
-                        <span class="tag">Multiplayer</span>
+                        <span class="tag">Action</span>
+                        <span class="tag">3D</span>
+                        <span class="tag">Arcade</span>
                     </div>
                 </div>
             </div>
             
             <!-- Game 2 -->
             <div class="game-card floating" style="animation-delay: 0.5s;">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600" alt="Soccer Challenge">
+                <img src="https://img.y8.com/cloud/v2-y8-thumbs-small-thumbnails-001/128642/small.gif" alt="Space Adventure">
                 <div class="game-info">
-                    <h3>Urban Racer</h3>
-                    <p>High-speed racing through neon-lit city streets with realistic physics.</p>
+                    <h3>Space Adventure</h3>
+                    <p>Battle alien ships in this epic space shooter with dynamic combat systems and stunning visuals.</p>
                     <div class="game-tags">
-                        <span class="tag">Racing</span>
+                        <span class="tag">Shooter</span>
+                        <span class="tag">Space</span>
                         <span class="tag">Action</span>
-                        <span class="tag">3D</span>
                     </div>
                 </div>
             </div>
             
             <!-- Game 3 -->
             <div class="game-card floating" style="animation-delay: 1s;">
-                <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?auto=format&fit=crop&w=600" alt="Puzzle Quest">
+                <img src="https://img.y8.com/cloud/v2-y8-thumbs-small-thumbnails-001/143607/small.gif" alt="Puzzle Quest">
                 <div class="game-info">
-                    <h3>Shadow Puzzle</h3>
-                    <p>Solve intricate puzzles in a mysterious world of light and shadow.</p>
+                    <h3>Puzzle Quest</h3>
+                    <p>Solve challenging puzzles and unlock mysterious worlds in this brain-teasing adventure.</p>
                     <div class="game-tags">
                         <span class="tag">Puzzle</span>
-                        <span class="tag">Adventure</span>
-                        <span class="tag">Mystery</span>
+                        <span class="tag">Strategy</span>
+                        <span class="tag">Brain</span>
                     </div>
                 </div>
             </div>
             
             <!-- Game 4 -->
             <div class="game-card floating" style="animation-delay: 1.5s;">
-                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600" alt="Racing Fury">
+                <img src="https://img.y8.com/cloud/v2-y8-thumbs-small-thumbnails-001/128405/small.gif" alt="Racing Fury">
                 <div class="game-info">
-                    <h3>Cyber Striker</h3>
-                    <p>Futuristic soccer game with power-ups and special abilities.</p>
+                    <h3>Racing Fury</h3>
+                    <p>High-speed racing with realistic physics and challenging tracks. Compete for the best lap times!</p>
                     <div class="game-tags">
-                        <span class="tag">Sports</span>
-                        <span class="tag">Arcade</span>
-                        <span class="tag">Competitive</span>
+                        <span class="tag">Racing</span>
+                        <span class="tag">Speed</span>
+                        <span class="tag">3D</span>
                     </div>
                 </div>
             </div>
@@ -576,48 +549,44 @@
         
         <!-- Footer -->
         <footer>
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>RTOX Games</h3>
-                    <p>Premium unblocked gaming experience with no restrictions. Play anywhere, anytime.</p>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#">All Games</a></li>
-                        <li><a href="#">New Releases</a></li>
-                        <li><a href="#">Popular Games</a></li>
-                        <li><a href="#">Request a Game</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Report Issue</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
+            <div class="policy-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
             </div>
-            
-            <div class="social-links">
-                <a href="#"><i class="fab fa-discord"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-reddit"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-            
             <div class="copyright">
-                <p>© 2023 RTOX Unblocked Games. All Rights Reserved.</p>
-                <p>Play responsibly. All games are property of their respective owners.</p>
+                <p>© 2025 RTOX Unblocked Games. All Rights Reserved.</p>
             </div>
         </footer>
     </div>
     
+    <!-- Game Container (Hidden by default) -->
+    <div class="game-container" id="gameContainer">
+        <div class="game-header">
+            <button class="return-btn" onclick="closeGame()">
+                <i class="fas fa-arrow-left"></i> Return to Home
+            </button>
+        </div>
+        <iframe class="game-frame" id="gameFrame" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
     <script>
+        // Function to open game in full screen
+        function openGame(game) {
+            if (game === 'slope') {
+                document.getElementById('gameFrame').src = 'https://www.y8.com/games/slope';
+                document.getElementById('gameContainer').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        // Function to close the game and return to home
+        function closeGame() {
+            document.getElementById('gameContainer').style.display = 'none';
+            document.getElementById('gameFrame').src = '';
+            document.body.style.overflow = 'auto';
+        }
+        
         // Add floating animation to game cards
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.game-card');
